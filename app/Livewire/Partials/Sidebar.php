@@ -10,7 +10,7 @@ class Sidebar extends Component
      * Toggle sidebar
      * @var bool
      */
-    public $sidebarToggle = true;
+    public bool $sidebarToggle = true;
     /**
      * Current page (component)
      * @var string
@@ -22,7 +22,7 @@ class Sidebar extends Component
      * @param $currentPage
      * @return void
      */
-    public function changePage($currentPage)
+    public function changePage($currentPage): void
     {
         $this->currentPage = $currentPage;
         $this->dispatch('changePage', $currentPage);
@@ -35,12 +35,14 @@ class Sidebar extends Component
      * Toggle sidebar (responsive)
      * @return void
      */
-    public function toggleSidebar()
+    public function toggleSidebar(): void
     {
         $this->sidebarToggle = !$this->sidebarToggle;
+        $this->dispatch('sidebarToggled', $this->sidebarToggle);
     }
 
-    public function mount()
+
+    public function mount(): void
     {
         $this->currentPage = 'Dashboard';
     }

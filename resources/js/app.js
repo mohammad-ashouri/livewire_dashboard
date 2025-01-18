@@ -15,4 +15,8 @@ document.addEventListener('DOMContentLoaded', function () {
     Livewire.on('updateTitle', (title) => {
         document.title = title;
     });
+    Livewire.on('darkModeUpdated', (data) => {
+        const { darkMode } = data;
+        document.body.classList.toggle('dark', darkMode);
+    });
 });

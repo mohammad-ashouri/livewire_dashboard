@@ -9,7 +9,7 @@
     @vite(['resources/css/app.css','resources/css/satoshi.css','resources/js/app.js'])
 </head>
 <body
-    :class="{'dark text-bodydark bg-boxdark-2': darkMode === true}"
+    class="{{ session('darkMode', false) ? 'dark' : 'light' }}"
 >
 
 <!-- ===== Preloader Start ===== -->

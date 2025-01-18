@@ -34,7 +34,7 @@ class Main extends Component
      */
     protected $listeners = [
         'changePage' => 'updatePage',
-        'changeMainHeaderTitle' => 'changeMainHeaderTitle'
+        'changeMainHeaderTitle' => 'changeMainHeaderTitle',
     ];
 
     /**
