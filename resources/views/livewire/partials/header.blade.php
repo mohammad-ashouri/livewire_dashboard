@@ -4,9 +4,10 @@
         <div class="flex items-center gap-2 sm:gap-4 lg:hidden">
             <button
                 class="z-99999 block rounded-sm border border-stroke bg-white p-1.5 shadow-sm dark:border-strokedark dark:bg-boxdark lg:hidden"
-                wire:click="toggleSidebar"
             >
-                <span class="relative block h-5.5 w-5.5 cursor-pointer">
+                <span
+                    wire:click="toggleSidebar"
+                    class="relative block h-5.5 w-5.5 cursor-pointer">
                     <span class="du-block absolute right-0 h-full w-full">
                     <!-- Span 1 -->
                     <span

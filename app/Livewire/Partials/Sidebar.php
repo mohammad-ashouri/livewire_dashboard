@@ -31,14 +31,13 @@ class Sidebar extends Component
         $this->dispatch('updateTitle', $currentPage . ' | TALL Stack Admin Dashboard');
     }
 
-    /**
-     * Toggle sidebar (responsive)
-     * @return void
-     */
-    public function toggleSidebar(): void
+    protected $listeners = [
+        'sidebarToggled' => 'toggleSidebar',
+    ];
+
+    public function toggleSidebar($toggle): void
     {
-        $this->sidebarToggle = !$this->sidebarToggle;
-        $this->dispatch('sidebarToggled', $this->sidebarToggle);
+        $this->sidebarToggle = $toggle;
     }
 
     public function mount(): void
