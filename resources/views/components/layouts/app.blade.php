@@ -20,7 +20,7 @@
 <div class="flex h-screen overflow-hidden"
 >
     <!-- ===== Sidebar Start ===== -->
-    @livewire('partials.sidebar', ['currentPage' => $currentPage])
+    @livewire('partials.sidebar')
     <!-- ===== Sidebar End ===== -->
 
     <!-- ===== Content Area Start ===== -->

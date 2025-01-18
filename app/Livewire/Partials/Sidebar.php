@@ -41,6 +41,10 @@ class Sidebar extends Component
         $this->dispatch('sidebarToggled', $this->sidebarToggle);
     }
 
+    public function checkScreenSize()
+    {
+        $this->sidebarToggle = request()->is('lg:*'); // بررسی عرض صفحه
+    }
 
     public function mount(): void
     {
