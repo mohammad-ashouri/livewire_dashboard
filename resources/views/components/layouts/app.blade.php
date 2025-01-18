@@ -4,25 +4,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{{ $title ?? 'ایرانیک تی وی' }}</title>
-    @vite(['resources/css/app.css','resources/css/satoshi.css','resources/js/app.js'])
+    <title>{{ $title ?? 'TALL Stack Admin Dashboard' }}</title>
     @livewireStyles
+    @vite(['resources/css/app.css','resources/css/satoshi.css','resources/js/app.js'])
 </head>
 <body
-    x-data="{ page: 'ecommerce', 'loaded': true, 'darkMode': true, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
-    x-init="
-         darkMode = JSON.parse(localStorage.getItem('darkMode'));
-         $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
     :class="{'dark text-bodydark bg-boxdark-2': darkMode === true}"
 >
+
 <!-- ===== Preloader Start ===== -->
 @livewire('partials.preloader')
 <!-- ===== Preloader End ===== -->
 
 <!-- ===== Page Wrapper Start ===== -->
-<div class="flex h-screen overflow-hidden">
+<div class="flex h-screen overflow-hidden"
+>
     <!-- ===== Sidebar Start ===== -->
-    @livewire('partials.sidebar')
+    @livewire('partials.sidebar', ['currentPage' => $currentPage])
     <!-- ===== Sidebar End ===== -->
 
     <!-- ===== Content Area Start ===== -->
@@ -35,7 +33,7 @@
 
         <!-- ===== Main Content Start ===== -->
         <main class="bg-whiten dark:bg-boxdark-2 h-[inherit]">
-            {{ $slot }}
+            @livewire('main', ['currentPage' => $currentPage])
         </main>
         <!-- ===== Main Content End ===== -->
     </div>

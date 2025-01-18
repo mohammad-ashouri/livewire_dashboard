@@ -1,4 +1,9 @@
 <header
+    x-data="{  loaded: true, darkMode: true, stickyMenu: false, sidebarToggle: false, scrollTop: false }"
+    x-init="
+            darkMode = JSON.parse(localStorage.getItem('darkMode'));
+            $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)));
+        "
     class="sticky top-0 z-999 flex w-full bg-white drop-shadow-1 dark:bg-boxdark dark:drop-shadow-none"
 >
     <div

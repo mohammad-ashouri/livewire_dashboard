@@ -6,8 +6,19 @@ use Livewire\Component;
 
 class Sidebar extends Component
 {
-    public function render()
+    public $sidebarToggle = true;
+    public $currentPage = 'dashboard';
+
+    public function changePage($currentPage)
     {
-        return view('livewire.partials.sidebar');
+        $this->currentPage = $currentPage;
+        $this->dispatch('changePage', $currentPage);
+        $this->dispatch('updateTitle', $currentPage . ' | TALL Stack Admin Dashboard');
     }
+
+    public function toggleSidebar()
+    {
+        $this->sidebarToggle = !$this->sidebarToggle;
+    }
+
 }
