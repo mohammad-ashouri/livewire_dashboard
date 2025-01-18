@@ -16,6 +16,7 @@
         @switch($currentPage)
             @case('Table')
                 @livewire('pages.Table')
+                @break
             @default
                 @livewire('pages.Dashboard')
         @endswitch

@@ -8,7 +8,6 @@ use Livewire\Component;
 class Main extends Component
 {
     #[Title('Dashboard | TALL Stack Admin Dashboard')]
-
     /**
      * Current page component
      * Default = dashboard
@@ -23,14 +22,20 @@ class Main extends Component
      */
     public array $breadcrumb = [];
 
+    public string $mainHeaderTitle;
 
     protected $listeners = [
         'changePage' => 'updatePage',
-        'changePageTitle' => 'changePageTitle'
+        'changeMainHeaderTitle' => 'changeMainHeaderTitle'
     ];
 
     public function updatePage($page)
     {
         $this->currentPage = $page;
+    }
+
+    public function changeMainHeaderTitle($title)
+    {
+        $this->mainHeaderTitle = $title;
     }
 }

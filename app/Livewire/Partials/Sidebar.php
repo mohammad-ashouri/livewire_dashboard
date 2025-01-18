@@ -14,6 +14,7 @@ class Sidebar extends Component
         $this->currentPage = $currentPage;
         $this->dispatch('changePage', $currentPage);
         $this->dispatch('updateTitle', $currentPage . ' | TALL Stack Admin Dashboard');
+        $this->dispatch('changeMainHeaderTitle', $currentPage);
     }
 
     public function toggleSidebar()
