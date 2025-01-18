@@ -22,18 +22,36 @@ class Main extends Component
      */
     public array $breadcrumb = [];
 
+    /**
+     * Main title of component headers
+     * @var string
+     */
     public string $mainHeaderTitle;
 
+    /**
+     * Listeners
+     * @var string[]
+     */
     protected $listeners = [
         'changePage' => 'updatePage',
         'changeMainHeaderTitle' => 'changeMainHeaderTitle'
     ];
 
+    /**
+     * Change page (component) after clicking on menu
+     * @param $page
+     * @return void
+     */
     public function updatePage($page)
     {
         $this->currentPage = $page;
     }
 
+    /**
+     * Change main header title
+     * @param $title
+     * @return void
+     */
     public function changeMainHeaderTitle($title)
     {
         $this->mainHeaderTitle = $title;
