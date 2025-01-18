@@ -23,7 +23,6 @@ class Main extends Component
      */
     public array $breadcrumb = [];
 
-    public $mainHeaderTitle = 'Dashboard';
 
     protected $listeners = [
         'changePage' => 'updatePage',

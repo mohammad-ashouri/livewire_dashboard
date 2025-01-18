@@ -13,11 +13,12 @@
 
     <!-- ====== Table Section Start -->
     <div class="flex flex-col gap-10 dark:bg-boxdark-2">
-        @if($currentPage=='Table')
-            @livewire('pages.Table')
-        @else
-            @livewire('pages.Dashboard')
-        @endif
+        @switch($currentPage)
+            @case('Table')
+                @livewire('pages.Table')
+            @default
+                @livewire('pages.Dashboard')
+        @endswitch
     </div>
     <!-- ====== Table Section End -->
 </div>

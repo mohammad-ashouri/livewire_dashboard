@@ -33,7 +33,7 @@
 
         <!-- ===== Main Content Start ===== -->
         <main class="bg-whiten dark:bg-boxdark-2 h-[inherit]">
-            @livewire('main', ['currentPage' => $currentPage])
+            {{ $slot }}
         </main>
         <!-- ===== Main Content End ===== -->
     </div>

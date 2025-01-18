@@ -7,7 +7,7 @@ use Livewire\Component;
 class Sidebar extends Component
 {
     public $sidebarToggle = true;
-    public $currentPage = 'dashboard';
+    public $currentPage;
 
     public function changePage($currentPage)
     {
@@ -21,4 +21,8 @@ class Sidebar extends Component
         $this->sidebarToggle = !$this->sidebarToggle;
     }
 
+    public function mount()
+    {
+        $this->currentPage = 'Dashboard';
+    }
 }

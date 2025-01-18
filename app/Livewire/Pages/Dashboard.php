@@ -7,8 +7,10 @@ use Livewire\Component;
 
 class Dashboard extends Component
 {
-    public function render()
+    public string $mainHeaderTitle;
+
+    public function mount()
     {
-        return view('livewire.pages.dashboard')->title('Dashboard | TALL Stack Admin Dashboard');
+        $this->mainHeaderTitle = 'Dashboard';
     }
 }
