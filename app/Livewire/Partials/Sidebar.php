@@ -31,20 +31,37 @@ class Sidebar extends Component
         $this->dispatch('updateTitle', $currentPage . ' | TALL Stack Admin Dashboard');
     }
 
+    /**
+     * Listeners
+     * @var string[]
+     */
     protected $listeners = [
         'toggleSidebarOn' => 'toggleSidebarOn',
     ];
 
+    /**
+     * Toggle sidebar and send an event for header component for change sidebarToggle status
+     * @return void
+     */
     public function toggleSidebar(): void
     {
         $this->sidebarToggle = !$this->sidebarToggle;
         $this->dispatch('toggleSidebarOff', $this->sidebarToggle);
     }
+
+    /**
+     * Toggle sidebar after header sent the event (this run with listener)
+     * @return void
+     */
     public function toggleSidebarOn(): void
     {
         $this->sidebarToggle = !$this->sidebarToggle;
     }
 
+    /**
+     * Mount the component
+     * @return void
+     */
     public function mount(): void
     {
         $this->currentPage = 'Dashboard';
