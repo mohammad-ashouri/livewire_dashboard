@@ -3,33 +3,23 @@
         <!-- Hamburger Toggle Button -->
         <div class="flex items-center gap-2 sm:gap-4 lg:hidden">
             <button
+                wire:click="toggleSidebar"
                 class="z-99999 block rounded-sm border border-stroke bg-white p-1.5 shadow-sm dark:border-strokedark dark:bg-boxdark lg:hidden"
             >
                 <span
-                    wire:click="toggleSidebar"
                     class="relative block h-5.5 w-5.5 cursor-pointer">
                     <span class="du-block absolute right-0 h-full w-full">
                     <!-- Span 1 -->
                     <span
-                        class="relative left-0 top-0 my-1 block h-0.5 rounded-sm bg-black delay-[0] duration-200 ease-in-out dark:bg-white {{ $sidebarToggle ? '!w-full delay-300' : 'w-0' }}"
+                        class="relative left-0 top-0 my-1 block h-0.5 rounded-sm bg-black delay-[0] duration-200 ease-in-out dark:bg-white {{ !$sidebarToggle ? '!w-full delay-300' : 'w-0' }}"
                     ></span>
                         <!-- Span 2 -->
                     <span
-                        class="relative left-0 top-0 my-1 block h-0.5 rounded-sm bg-black delay-150 duration-200 ease-in-out dark:bg-white {{ $sidebarToggle ? '!w-full delay-400' : 'w-0' }}"
+                        class="relative left-0 top-0 my-1 block h-0.5 rounded-sm bg-black delay-150 duration-200 ease-in-out dark:bg-white {{ !$sidebarToggle ? '!w-full delay-400' : 'w-0' }}"
                     ></span>
                         <!-- Span 3 -->
                     <span
-                        class="relative left-0 top-0 my-1 block h-0.5 rounded-sm bg-black delay-200 duration-200 ease-in-out dark:bg-white {{ $sidebarToggle ? '!w-full delay-500' : 'w-0' }}"
-                    ></span>
-                </span>
-                <span class="du-block absolute right-0 h-full w-full rotate-45">
-                    <!-- Span 4 -->
-                    <span
-                        class="absolute left-2.5 top-0 block h-full w-0.5 rounded-sm bg-black delay-300 duration-200 ease-in-out dark:bg-white {{ $sidebarToggle ? '!h-0 delay-[0]' : 'h-full' }}"
-                    ></span>
-                    <!-- Span 5 -->
-                    <span
-                        class="absolute left-0 top-2.5 block h-0.5 w-full rounded-sm bg-black delay-400 duration-200 ease-in-out dark:bg-white {{ $sidebarToggle ? '!h-0 delay-200' : 'h-0.5' }}"
+                        class="relative left-0 top-0 my-1 block h-0.5 rounded-sm bg-black delay-200 duration-200 ease-in-out dark:bg-white {{ !$sidebarToggle ? '!w-full delay-500' : 'w-0' }}"
                     ></span>
                 </span>
                 </span>

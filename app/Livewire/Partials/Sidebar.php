@@ -10,7 +10,7 @@ class Sidebar extends Component
      * Toggle sidebar
      * @var bool
      */
-    public bool $sidebarToggle = true;
+    public bool $sidebarToggle = false;
     /**
      * Current page (component)
      * @var string
@@ -32,12 +32,17 @@ class Sidebar extends Component
     }
 
     protected $listeners = [
-        'sidebarToggled' => 'toggleSidebar',
+        'toggleSidebarOn' => 'toggleSidebarOn',
     ];
 
-    public function toggleSidebar($toggle): void
+    public function toggleSidebar(): void
     {
-        $this->sidebarToggle = $toggle;
+        $this->sidebarToggle = !$this->sidebarToggle;
+        $this->dispatch('toggleSidebarOff', $this->sidebarToggle);
+    }
+    public function toggleSidebarOn(): void
+    {
+        $this->sidebarToggle = !$this->sidebarToggle;
     }
 
     public function mount(): void

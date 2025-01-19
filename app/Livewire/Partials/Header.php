@@ -9,7 +9,7 @@ class Header extends Component
     // متغیرها
     public bool $darkMode = false; // حالت تاریک
     public bool $userDropdownOpen = false; // برای منوی کاربر
-    public bool $sidebarToggle = true; // برای نمایش/مخفی کردن سایدبار
+    public bool $sidebarToggle = false; // برای نمایش/مخفی کردن سایدبار
 
     /**
      * Toggle dark/light mode
@@ -29,7 +29,16 @@ class Header extends Component
     }
 
     // تغییر وضعیت سایدبار
+
+    protected $listeners = [
+        'toggleSidebarOff' => 'toggleSidebarOff',
+    ];
     public function toggleSidebar()
+    {
+        $this->sidebarToggle = !$this->sidebarToggle;
+        $this->dispatch('toggleSidebarOn', $this->sidebarToggle);
+    }
+    public function toggleSidebarOff()
     {
         $this->sidebarToggle = !$this->sidebarToggle;
     }
