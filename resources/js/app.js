@@ -19,4 +19,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const { darkMode } = data;
         document.body.classList.toggle('dark', darkMode);
     });
+    Livewire.on('start-preloader-timeout', (data) => {
+        setTimeout(() => {
+            Livewire.dispatch('hidePreloader');
+        }, data[0].counter);
+    });
 });

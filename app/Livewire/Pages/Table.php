@@ -6,5 +6,4 @@ use Livewire\Component;
 
 class Table extends Component
 {
-
 }

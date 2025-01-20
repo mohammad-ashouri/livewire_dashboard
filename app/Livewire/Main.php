@@ -29,12 +29,19 @@ class Main extends Component
     public string $mainHeaderTitle;
 
     /**
+     * Show/Hide all main component title
+     * @var bool
+     */
+    public $showContent = false;
+
+    /**
      * Listeners
      * @var string[]
      */
     protected $listeners = [
         'changePage' => 'updatePage',
         'changeMainHeaderTitle' => 'changeMainHeaderTitle',
+        'preloaderFinished' => 'showContent',
     ];
 
     /**
@@ -42,9 +49,30 @@ class Main extends Component
      * @param $page
      * @return void
      */
-    public function updatePage($page)
+    public function updatePage($page): void
     {
+        $this->showContent = false;
+        $this->dispatch('triggerPreloader');
         $this->currentPage = $page;
+    }
+
+    /**
+     * Show all main component contents
+     * @return void
+     */
+    public function showContent(): void
+    {
+        $this->showContent = true;
+    }
+
+    /**
+     * Mount component
+     * @return void
+     */
+    public function mount(): void
+    {
+        $this->dispatch('triggerPreloader');
+        $this->showContent();
     }
 
     /**
@@ -52,7 +80,7 @@ class Main extends Component
      * @param $title
      * @return void
      */
-    public function changeMainHeaderTitle($title)
+    public function changeMainHeaderTitle($title): void
     {
         $this->mainHeaderTitle = $title;
     }
