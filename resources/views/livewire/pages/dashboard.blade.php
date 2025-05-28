@@ -27,4 +27,18 @@
         </div>
 
     </div>
+    <div class="flex flex-col">
+        <div
+            class="grid grid-cols-3 rounded-sm bg-gray-2 dark:bg-meta-4 sm:grid-cols-5"
+        >
+            <form wire:submit.prevent="send">
+                @csrf
+                <input type="file" wire:model="file">
+                <button type="submit">
+                    send
+                </button>
+            </form>
+        </div>
+
+    </div>
 </div>
